@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ardi | Database Populator</title>
+    <style>
+        body { 
+            background: #1c252c; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; 
+        }
+        .card { 
+            background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); 
+            text-align: center; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .btn { 
+            background: #43A047; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; margin-top: 1rem; transition: 0.2s; width: 100%;
+        }
+        .btn:hover { background: #2e7d32; }
+        .btn:disabled { background: #555; cursor: not-allowed; opacity: 0.7; }
+        #fileInput { 
+            margin: 1.5rem 0; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 6px; width: 100%; box-sizing: border-box; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🌱 Crop Production Database</h2>
+        <p>Select your <code>crop_db.json</code> or <code>.txt</code> file to safely batch upload all historical records into your live Firebase database.</p>
+        
+        <input type="file" id="fileInput" accept=".json, .txt, text/plain" />
+        <button id="uploadBtn" class="btn" disabled>Upload to Firebase</button>
+        <div id="status" style="margin-top: 1.5rem; font-family: monospace; color: #E9C46A; min-height: 20px;"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, collection, writeBatch, doc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBq34c84ZEiaM9cYQMDaanOTnXhcZpSvAU",
+            authDomain: "ardi-7bcff.firebaseapp.com",
+            projectId: "ardi-7bcff",
+            storageBucket: "ardi-7bcff.firebasestorage.app",
+            messagingSenderId: "145648454690",
+            appId: "1:145648454690:web:f2b139bfee26080a87ce7b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const fileInput = document.getElementById("fileInput");
+        const uploadBtn = document.getElementById("uploadBtn");
+        const status = document.getElementById("status");
+
+        let jsonData = null;
+
+        fileInput.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) { uploadBtn.disabled = true; return; }
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    jsonData = JSON.parse(event.target.result);
+                    if (jsonData.documents && Array.isArray(jsonData.documents)) {
+                        status.textContent = `✅ Ready to upload ${jsonData.documents.length} historical records.`;
+                        status.style.color = "#43A047";
+                        uploadBtn.disabled = false;
+                    } else { throw new Error("Missing 'documents' array"); }
+                } catch (err) {
+                    status.textContent = "❌ Invalid JSON format.";
+                    status.style.color = "#E76F51";
+                    uploadBtn.disabled = true;
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        uploadBtn.addEventListener("click", async () => {
+            if (!jsonData || !jsonData.documents) return;
+            uploadBtn.disabled = true; fileInput.disabled = true;
+            status.style.color = "#E9C46A";
+
+            try {
+                const colRef = collection(db, "crop_production_stats");
+                let batch = writeBatch(db); let count = 0; let batchCount = 0;
+
+                for (const record of jsonData.documents) {
+                    batch.set(doc(colRef, record.id), record);
+                    count++; batchCount++;
+                    if (batchCount >= 450) {
+                        status.textContent = `Uploading... (${count} / ${jsonData.documents.length})`;
+                        await batch.commit(); batch = writeBatch(db); batchCount = 0;
+                    }
+                }
+                if (batchCount > 0) await batch.commit();
+                status.textContent = `🎉 Success! ${count} records are now live in Firebase.`;
+                status.style.color = "#43A047"; uploadBtn.textContent = "Upload Complete";
+            } catch (error) {
+                console.error(error);
+                status.textContent = "❌ Error uploading to Firebase.";
+                status.style.color = "#E76F51";
+                uploadBtn.disabled = false; fileInput.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

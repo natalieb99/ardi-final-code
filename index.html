@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | منصة الزراعة الذكية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link">
+          <div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div>
+          <div class="brand-text">
+            <span class="brand-en">Ardi</span>
+            <span class="brand-ar">أرضي - الأردن</span>
+          </div>
+        </a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Jordan-first platform" data-ar="منصة مصممة للأردن">منصة مصممة للأردن</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head">
+        <div class="brand-text">
+          <span class="brand-en">Ardi</span>
+          <span class="brand-ar">أرضي - الأردن</span>
+        </div>
+        <button class="lang-btn-top" type="button">EN</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="page-hero hero-panel">
+              <div class="hero-grid">
+                <div class="hero-copy">
+                  <div class="hero-eyebrow" data-en="Jordan smart agriculture platform" data-ar="منصة أردنية لإدارة القرار الزراعي">منصة أردنية لإدارة القرار الزراعي</div>
+                  <h1 class="hero-title" data-en="Grow with <em>clarity</em><br />Decide with confidence" data-ar="ازرع <em>بوضوح</em><br />واتخذ القرار بثقة">ازرع <em>بوضوح</em><br />واتخذ القرار بثقة</h1>
+                  <p class="hero-lead" data-en="Ardi brings field planning, crop advice, weather awareness, market signals, and farm records into one visually calm workflow built for growers in Jordan." data-ar="تجمع أرضي بين تخطيط الحقل، توصيات المحاصيل، متابعة الطقس، إشارات السوق، وسجلات المزرعة في تجربة واحدة هادئة وواضحة للمزارعين في الأردن.">تجمع أرضي بين تخطيط الحقل، توصيات المحاصيل، متابعة الطقس، إشارات السوق، وسجلات المزرعة في تجربة واحدة هادئة وواضحة للمزارعين في الأردن.</p>
+                  <div class="hero-actions">
+                    <a class="btn btn-clay" href="crop-advisor.html" data-en="Start with Crop Advisor" data-ar="ابدأ مع مستشار المحاصيل">ابدأ مع مستشار المحاصيل</a>
+                    <a class="btn btn-outline" href="companion-plants.html" data-en="Calculate irrigation needs" data-ar="احسب احتياجات الري">احسب احتياجات الري</a>
+                  </div>
+                </div>
+                <div class="hero-side">
+                  <div class="hero-widget-stack" style="display: grid; gap: 1rem;">
+                    <!-- Widget 1: Live Regional Telemetry -->
+                    <div class="highlight-card" style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.1);">
+                      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.2rem;">
+                        <h3 style="margin:0; font-family: var(--font-serif); font-size: 1.1rem; color: #fff;" data-en="Regional Telemetry" data-ar="القياسات الحية للمناطق">القياسات الحية للمناطق</h3>
+                        <div style="display:flex; gap: 0.3rem; background: rgba(255,255,255,0.1); padding: 0.2rem; border-radius: var(--radius-sm);">
+                          <select id="tel-zone-select" class="form-control" style="background: rgba(0,0,0,0.4); border: none; color: #fff; padding: 0.2rem 0.5rem; font-size: 0.8rem; font-weight: bold; outline: none; cursor: pointer; border-radius: var(--radius-sm);">
+                            <option value="amman" data-en="Amman" data-ar="العاصمة">العاصمة</option>
+                            <option value="zarqa" data-en="Zarqa" data-ar="الزرقاء">الزرقاء</option>
+                            <option value="irbid" data-en="Irbid" data-ar="إربد">إربد</option>
+                            <option value="mafraq" data-en="Mafraq" data-ar="المفرق">المفرق</option>
+                            <option value="ajloun" data-en="Ajloun" data-ar="عجلون">عجلون</option>
+                            <option value="jerash" data-en="Jerash" data-ar="جرش">جرش</option>
+                            <option value="balqa" data-en="Balqa" data-ar="البلقاء">البلقاء</option>
+                            <option value="madaba" data-en="Madaba" data-ar="مأدبا">مأدبا</option>
+                            <option value="karak" data-en="Karak" data-ar="الكرك">الكرك</option>
+                            <option value="tafilah" data-en="Tafilah" data-ar="الطفيلة">الطفيلة</option>
+                            <option value="maan" data-en="Ma'an" data-ar="معان">معان</option>
+                            <option value="aqaba" data-en="Aqaba" data-ar="العقبة">العقبة</option>
+                            <option value="jordan-valley" data-en="Jordan Valley" data-ar="وادي الأردن">وادي الأردن</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div style="display:grid; gap: 1.1rem;">
+                        <div>
+                          <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:0.3rem; color:rgba(255,255,255,0.8); font-weight: 700; text-transform: uppercase;">
+                            <span data-en="Soil Moisture" data-ar="رطوبة التربة">رطوبة التربة</span>
+                            <span id="tel-moist-val">42%</span>
+                          </div>
+                          <div style="height: 6px; background:rgba(255,255,255,0.1); border-radius: 99px; overflow:hidden;">
+                            <div id="tel-moist-bar" style="height:100%; width: 42%; background: #6DD5FA; transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:0.3rem; color:rgba(255,255,255,0.8); font-weight: 700; text-transform: uppercase;">
+                            <span data-en="Nitrogen Level" data-ar="مستوى النيتروجين">مستوى النيتروجين</span>
+                            <span id="tel-nit-val" data-en="Medium" data-ar="متوسط">متوسط</span>
+                          </div>
+                          <div style="height: 6px; background:rgba(255,255,255,0.1); border-radius: 99px; overflow:hidden;">
+                            <div id="tel-nit-bar" style="height:100%; width: 60%; background: #d5a93a; transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:0.3rem; color:rgba(255,255,255,0.8); font-weight: 700; text-transform: uppercase;">
+                            <span data-en="Solar Radiation" data-ar="الإشعاع الشمسي">الإشعاع الشمسي</span>
+                            <span id="tel-sun-val">8h</span>
+                          </div>
+                          <div style="height: 6px; background:rgba(255,255,255,0.1); border-radius: 99px; overflow:hidden;">
+                            <div id="tel-sun-bar" style="height:100%; width: 80%; background: #efd78d; transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Widget 2: Interactive ROI Estimator -->
+                    <div class="highlight-card" style="padding: 1.5rem; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1);">
+                      <h3 style="margin:0 0 1rem; font-family: var(--font-serif); font-size: 1.1rem; color: #fff;" data-en="Quick Yield Estimator" data-ar="حاسبة الإنتاج السريعة">حاسبة الإنتاج السريعة</h3>
+                      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <select id="roi-zone" class="form-control" style="background: rgba(255,255,255,0.9); padding: 0.5rem; font-size: 0.85rem; border: none;">
+                          <option value="amman" data-en="Amman" data-ar="العاصمة">العاصمة</option>
+                          <option value="zarqa" data-en="Zarqa" data-ar="الزرقاء">الزرقاء</option>
+                          <option value="irbid" data-en="Irbid" data-ar="إربد">إربد</option>
+                          <option value="mafraq" data-en="Mafraq" data-ar="المفرق">المفرق</option>
+                          <option value="ajloun" data-en="Ajloun" data-ar="عجلون">عجلون</option>
+                          <option value="jerash" data-en="Jerash" data-ar="جرش">جرش</option>
+                          <option value="balqa" data-en="Balqa" data-ar="البلقاء">البلقاء</option>
+                          <option value="madaba" data-en="Madaba" data-ar="مأدبا">مأدبا</option>
+                          <option value="karak" data-en="Karak" data-ar="الكرك">الكرك</option>
+                          <option value="tafilah" data-en="Tafilah" data-ar="الطفيلة">الطفيلة</option>
+                          <option value="maan" data-en="Ma'an" data-ar="معان">معان</option>
+                          <option value="aqaba" data-en="Aqaba" data-ar="العقبة">العقبة</option>
+                          <option value="jordan-valley" data-en="Jordan Valley" data-ar="وادي الأردن">وادي الأردن</option>
+                        </select>
+                        <select id="roi-crop" class="form-control" style="background: rgba(255,255,255,0.9); padding: 0.5rem; font-size: 0.85rem; border: none;">
+                          <!-- Populated dynamically by JS -->
+                        </select>
+                      </div>
+                      <div style="display:flex; align-items:center; gap: 0.6rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 0 0.8rem; margin-bottom: 1.2rem;">
+                        <input type="range" id="roi-area" min="1" max="50" value="10" style="width: 100%; cursor: pointer; accent-color: var(--wheat);" />
+                        <span id="roi-area-val" style="color: #fff; font-weight: bold; font-size: 0.85rem; white-space: nowrap;">10 D</span>
+                      </div>
+                      <div style="display:grid; gap: 0.8rem;">
+                        <div style="display:flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                          <div style="font-size: 0.75rem; color:rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing:0.05em; font-weight: 700;" data-en="Est. Revenue" data-ar="الإيراد">الإيراد</div>
+                          <div id="roi-revenue" style="font-size: 1.4rem; font-family: var(--font-serif); color: var(--wheat-soft); line-height: 1;">-- JOD</div>
+                        </div>
+                        <div style="display:flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                          <div style="font-size: 0.75rem; color:rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing:0.05em; font-weight: 700;" data-en="Est. Cost" data-ar="التكلفة">التكلفة</div>
+                          <div id="roi-cost" style="font-size: 1.4rem; font-family: var(--font-serif); color: rgba(255,255,255,0.9); line-height: 1;">-- JOD</div>
+                        </div>
+                        <div style="display:flex; justify-content: space-between; align-items: center;">
+                          <div style="font-size: 0.75rem; color:rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing:0.05em; font-weight: 700;" data-en="Est. Yield" data-ar="الإنتاج">الإنتاج</div>
+                          <div id="roi-yield" style="font-size: 1.2rem; color: #fff; font-weight: bold; line-height: 1;">-- kg</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="section">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <div class="section-label" data-en="Market Intelligence" data-ar="ذكاء السوق">ذكاء السوق</div>
+                <h2 class="section-title" data-en="Price Forecast (ARIMA)" data-ar="توقعات الأسعار (ARIMA)">توقعات الأسعار (ARIMA)</h2>
+                <p class="section-subtitle" data-en="Predictive modeling for crop prices based on historical trends." data-ar="نماذج توقع الأسعار للمحاصيل بناءً على الاتجاهات التاريخية.">نماذج توقع الأسعار للمحاصيل بناءً على الاتجاهات التاريخية.</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 1.5rem; max-width: 300px;">
+              <select id="arimaCropSelect" class="form-control" style="font-weight: bold;"></select>
+            </div>
+            <div id="arimaSingleView"></div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-bar">
+          <span data-en="Ardi - smart farming prototype for Jordan" data-ar="أرضي - نموذج أولي لمنصة زراعية ذكية للأردن">أرضي - نموذج أولي لمنصة زراعية ذكية للأردن</span>
+          <span data-en="New structure with Arabic-first experience" data-ar="هيكل جديد بتجربة عربية أولًا">هيكل جديد بتجربة عربية أولًا</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script type="module" src="app.js?v=2"></script>
+</body>
+</html>

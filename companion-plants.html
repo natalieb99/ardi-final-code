@@ -1,0 +1,135 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | حاسبة الري الذكية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link"><div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div></a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link active" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Precision Farming" data-ar="زراعة دقيقة">زراعة دقيقة</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head"><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div><button class="lang-btn-top" type="button">EN</button></div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link active" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="hero-banner">
+              <div class="page-banner-meta">
+                <div>
+                  <div class="hero-eyebrow" data-en="Water Management" data-ar="إدارة المياه">إدارة المياه</div>
+                  <h1 class="page-title" data-en="Smart <em>Irrigation</em>" data-ar="حاسبة <em>الري</em>">حاسبة <em>الري</em></h1>
+                  <p class="page-subtitle" data-en="Calculate precise water requirements based on crop stage, soil drainage, and live temperature data to optimize yield and save water." data-ar="احسب الاحتياجات المائية الدقيقة بناءً على مرحلة النمو وتصريف التربة ودرجات الحرارة الحية لتحسين الإنتاج وتوفير المياه.">احسب الاحتياجات المائية الدقيقة بناءً على مرحلة النمو وتصريف التربة ودرجات الحرارة الحية لتحسين الإنتاج وتوفير المياه.</p>
+                </div>
+                <span class="tag" data-en="Live Weather Sync" data-ar="مزامنة طقس حية">مزامنة طقس حية</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="section">
+          <div class="container">
+            <div class="advisor-wrap">
+              <div class="surface-panel" style="padding: 1.5rem;">
+                <div class="section-label" data-en="Field Parameters" data-ar="محددات الحقل">محددات الحقل</div>
+                <form id="irrigForm" class="advisor-form">
+                  <div class="form-field span-2">
+                    <label class="form-label" data-en="Load from My Plots (Optional)" data-ar="تحميل من أراضيّ (اختياري)">تحميل من أراضيّ (اختياري)</label>
+                    <select id="irrigPlotSelect" class="form-control">
+                      <option value="" data-en="Select a saved plot..." data-ar="اختر حقلاً محفوظاً...">اختر حقلاً محفوظاً...</option>
+                      <!-- Populated by JS -->
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Crop Type" data-ar="نوع المحصول">نوع المحصول</label>
+                    <select id="irrigCrop" class="form-control" required>
+                      <!-- Populated dynamically -->
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Area (Dunums)" data-ar="المساحة (دونم)">المساحة (دونم)</label>
+                    <input type="number" id="irrigSize" class="form-control" min="1" value="10" required />
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Soil Type" data-ar="نوع التربة">نوع التربة</label>
+                    <select id="irrigSoil" class="form-control" required>
+                      <option value="sandy" data-en="Sandy (Fast drainage)" data-ar="رملية (سريعة التصريف)">رملية (سريعة التصريف)</option>
+                      <option value="loamy" data-en="Loamy (Balanced)" data-ar="طميية (متوازنة)" selected>طميية (متوازنة)</option>
+                      <option value="clay" data-en="Clay (Retains water)" data-ar="طينية (تحتفظ بالماء)">طينية (تحتفظ بالماء)</option>
+                      <option value="calcareous" data-en="Calcareous" data-ar="كلسية">كلسية</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Irrigation Method" data-ar="طريقة الري">طريقة الري</label>
+                    <select id="irrigMethod" class="form-control" required>
+                      <option value="drip" data-en="Drip / Network" data-ar="تنقيط / شبكة ري" selected>تنقيط / شبكة ري</option>
+                      <option value="sprinkler" data-en="Sprinkler" data-ar="رشاشات (رذاذ)">رشاشات (رذاذ)</option>
+                      <option value="surface" data-en="Surface / Furrow" data-ar="ري سطحي / قنوات">ري سطحي / قنوات</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Current Growth Stage" data-ar="مرحلة النمو الحالية">مرحلة النمو الحالية</label>
+                    <select id="irrigStage" class="form-control" required>
+                      <option value="initial" data-en="Initial (Seedling/Early Veg)" data-ar="ابتدائية (شتلات / نمو مبكر)">ابتدائية (شتلات / نمو مبكر)</option>
+                      <option value="dev" data-en="Crop Development (Rapid growth)" data-ar="تطور المحصول (نمو سريع)">تطور المحصول (نمو سريع)</option>
+                      <option value="mid" data-en="Mid-Season (Flowering/Fruiting)" data-ar="منتصف الموسم (تزهير / إثمار)" selected>منتصف الموسم (تزهير / إثمار)</option>
+                      <option value="late" data-en="Late Season (Maturation/Harvest)" data-ar="أواخر الموسم (نضج / حصاد)">أواخر الموسم (نضج / حصاد)</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Pump Flow Rate (m³/h)" data-ar="قوة المضخة (م³/ساعة)">قوة المضخة (م³/ساعة)</label>
+                    <input type="number" id="irrigFlow" class="form-control" min="1" value="15" required />
+                  </div>
+                  <div class="form-field span-2">
+                    <button class="btn btn-clay btn-full" type="submit" data-en="Calculate Requirements" data-ar="حساب الاحتياجات المائية">حساب الاحتياجات المائية</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="result-panel empty" id="irrigResult">
+                <div>
+                  <div class="empty-icon">◇</div>
+                  <p data-en="Enter your field details and pump capacity to generate an actionable watering schedule." data-ar="أدخل تفاصيل حقلك وقوة المضخة لتوليد جدول ري دقيق وقابل للتنفيذ.">أدخل تفاصيل حقلك وقوة المضخة لتوليد جدول ري دقيق وقابل للتنفيذ.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-bar"><span data-en="Water Management Tool" data-ar="أداة إدارة المياه">أداة إدارة المياه</span><span data-en="Optimized for Jordan" data-ar="محسّنة للبيئة الأردنية">محسّنة للبيئة الأردنية</span></div></footer>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | سجل الحقل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link"><div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div></a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link active" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Farm memory" data-ar="ذاكرة المزرعة">ذاكرة المزرعة</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head"><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div><button class="lang-btn-top" type="button">EN</button></div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link active" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="hero-banner">
+              <div class="page-banner-meta">
+                <div>
+                  <div class="hero-eyebrow" data-en="Operational history" data-ar="تاريخ العمليات">تاريخ العمليات</div>
+                  <h1 class="page-title" data-en="Plot <em>Journal</em>" data-ar="سجل <em>الحقل</em>">سجل <em>الحقل</em></h1>
+                  <p class="page-subtitle" data-en="Record irrigation, fertilization, pest control, maintenance, and harvest notes in a timeline you can actually review later." data-ar="سجل الري والتسميد والآفات والصيانة والحصاد في خط زمني واضح يمكن مراجعته لاحقًا بسهولة.">سجل الري والتسميد والآفات والصيانة والحصاد في خط زمني واضح يمكن مراجعته لاحقًا بسهولة.</p>
+                </div>
+                <span class="tag" data-en="Timeline view" data-ar="عرض زمني">عرض زمني</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="grid grid-2" style="align-items:start;">
+              <div class="surface-panel">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+                  <div class="section-label" style="margin:0;" data-en="Activity log" data-ar="سجل النشاط">سجل النشاط</div>
+                  <button class="btn btn-clay btn-sm" id="addEntryBtn" type="button" data-en="Log activity" data-ar="إضافة نشاط">إضافة نشاط</button>
+                </div>
+                <div id="entryForm" style="display:none;margin-top:1rem;">
+                  <div class="grid">
+                    <div class="form-field">
+                      <label class="form-label" data-en="Activity type" data-ar="نوع النشاط">نوع النشاط</label>
+                      <select id="entryType" class="form-control">
+                        <option value="Watering" data-en="Watering" data-ar="ري">ري</option>
+                        <option value="Fertilizer" data-en="Fertilizer" data-ar="تسميد">تسميد</option>
+                        <option value="Pest Control" data-en="Pest Control" data-ar="مكافحة آفات">مكافحة آفات</option>
+                        <option value="Harvest" data-en="Harvest" data-ar="حصاد">حصاد</option>
+                        <option value="Maintenance" data-en="Maintenance" data-ar="صيانة">صيانة</option>
+                      </select>
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Plot" data-ar="القطعة">القطعة</label>
+                      <input id="entryPlot" type="text" class="form-control" />
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Note" data-ar="ملاحظة">ملاحظة</label>
+                      <textarea id="entryNote" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-dark btn-full" id="saveEntryBtn" type="button" data-en="Save entry" data-ar="حفظ النشاط">حفظ النشاط</button>
+                  </div>
+                </div>
+                <div id="journalList" style="margin-top:1rem;"></div>
+              </div>
+              <div class="grid">
+                <div class="card">
+                  <h3 class="card-title" data-en="Tag logic" data-ar="منطق الوسوم">منطق الوسوم</h3>
+                  <p class="card-body" data-en="Keep notes short and operational so later reviews answer what happened, where, and why." data-ar="اجعل الملاحظات قصيرة وعملية حتى تستطيع المراجعة لاحقًا ومعرفة ماذا حدث وأين ولماذا.">اجعل الملاحظات قصيرة وعملية حتى تستطيع المراجعة لاحقًا ومعرفة ماذا حدث وأين ولماذا.</p>
+                </div>
+                <div class="alert-card ok"><span class="alert-icon">*</span><div><div class="alert-title" data-en="Watering" data-ar="ري">ري</div><div class="alert-note" data-en="Add timing, volume, and irrigation method." data-ar="أضف التوقيت والكمية وطريقة الري.">أضف التوقيت والكمية وطريقة الري.</div></div></div>
+                <div class="alert-card ok"><span class="alert-icon">*</span><div><div class="alert-title" data-en="Fertilizer" data-ar="تسميد">تسميد</div><div class="alert-note" data-en="Note product type and application rate." data-ar="سجل نوع المنتج ومعدل الاستخدام.">سجل نوع المنتج ومعدل الاستخدام.</div></div></div>
+                <div class="alert-card warn"><span class="alert-icon">*</span><div><div class="alert-title" data-en="Pest control" data-ar="مكافحة آفات">مكافحة آفات</div><div class="alert-note" data-en="Capture the issue, treatment, and result." data-ar="وثق المشكلة والمعالجة والنتيجة.">وثق المشكلة والمعالجة والنتيجة.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-bar"><span data-en="Operational timeline for every field" data-ar="خط زمني تشغيلي لكل حقل">خط زمني تشغيلي لكل حقل</span><span data-en="Arabic-first recordkeeping" data-ar="توثيق عربي أولًا">توثيق عربي أولًا</span></div></footer>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

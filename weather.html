@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | الطقس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @keyframes floatIcon {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    #currentIcon {
+      animation: floatIcon 3.5s ease-in-out infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .weather-big {
+      background-size: 200% 200% !important;
+      animation: gradientMove 8s ease infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link"><div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div></a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link active" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Alert center" data-ar="مركز التنبيهات">مركز التنبيهات</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head"><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div><button class="lang-btn-top" type="button">EN</button></div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link active" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="hero-banner">
+              <div class="page-banner-meta">
+                <div>
+                  <div class="hero-eyebrow" data-en="Weather awareness" data-ar="وعي الطقس">وعي الطقس</div>
+                  <h1 class="page-title" data-en="Weather <em>Alerts</em>" data-ar="تنبيهات <em>الطقس</em>">تنبيهات <em>الطقس</em></h1>
+                  <p class="page-subtitle" data-en="A calmer weather view for the field team: quick conditions, weekly pattern, and action-oriented alerts." data-ar="واجهة طقس أوضح لفريق الحقل: حالة سريعة، نمط أسبوعي، وتنبيهات قابلة للتنفيذ.">واجهة طقس أوضح لفريق الحقل: حالة سريعة، نمط أسبوعي، وتنبيهات قابلة للتنفيذ.</p>
+                </div>
+                <span class="tag" data-en="Live weather" data-ar="طقس حي">طقس حي</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="grid grid-2" style="align-items:stretch; margin-bottom: 1rem;">
+                <div class="weather-big" style="display: flex; flex-direction: column; justify-content: center;">
+                  <div class="weather-location" data-en="Amman, Jordan - today" data-ar="عمّان، الأردن - اليوم">عمّان، الأردن - اليوم</div>
+                  <div style="display: flex; align-items: center; gap: 1rem; margin: 0.5rem 0;">
+                    <img id="currentIcon" src="" alt="Weather Icon" style="width: 80px; height: 80px; display: none; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));" />
+                    <div class="weather-temp" id="currentTemp" style="margin: 0;">--C</div>
+                  </div>
+                  <div class="weather-desc" id="currentDesc" data-en="Loading live weather..." data-ar="جاري تحميل الطقس الحي...">جاري تحميل الطقس الحي...</div>
+                  <div class="weather-stat-row">
+                    <div><div class="weather-stat-v" id="currentHumidity">--%</div><div class="weather-stat-k" data-en="Humidity" data-ar="الرطوبة">الرطوبة</div></div>
+                    <div><div class="weather-stat-v" id="currentWind">-- km/h</div><div class="weather-stat-k" data-en="Wind" data-ar="الرياح">الرياح</div></div>
+                    <div><div class="weather-stat-v" id="currentRain">-- mm</div><div class="weather-stat-k" data-en="Rain" data-ar="المطر">المطر</div></div>
+                    <div><div class="weather-stat-v" id="currentHigh">--C</div><div class="weather-stat-k" data-en="High" data-ar="العظمى">العظمى</div></div>
+                  </div>
+                </div>
+                <div class="card card-olive" id="aiInsightsCard" style="display: none; height: auto;">
+                  <div id="aiInsightsContent" class="card-body" style="font-size: 1.15rem; line-height: 1.6; height: 100%; display: flex; align-items: center;" data-en="Analyzing weather data..." data-ar="جاري تحليل بيانات الطقس...">جاري تحليل بيانات الطقس...</div>
+                </div>
+            </div>
+            <div class="card">
+              <h3 class="card-title" data-en="5-day outlook" data-ar="توقعات 5 أيام">توقعات 5 أيام</h3>
+              <div class="grid grid-4" id="forecastGrid" style="margin-top:1rem;">
+                <div class="metric-card"><div class="metric-value wheat">--</div><div class="metric-label">-</div></div>
+                <div class="metric-card"><div class="metric-value olive">--</div><div class="metric-label">-</div></div>
+                <div class="metric-card"><div class="metric-value clay">--</div><div class="metric-label">-</div></div>
+                <div class="metric-card"><div class="metric-value dark">--</div><div class="metric-label">-</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-bar"><span data-en="Visual weather monitoring" data-ar="متابعة بصرية للطقس">متابعة بصرية للطقس</span><span data-en="Action-oriented alerts" data-ar="تنبيهات قابلة للتنفيذ">تنبيهات قابلة للتنفيذ</span></div></footer>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

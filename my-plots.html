@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | أراضيّ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link"><div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div></a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link active" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Plot registry" data-ar="سجل الأراضي">سجل الأراضي</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head"><div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div><button class="lang-btn-top" type="button">EN</button></div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link active" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="hero-banner">
+              <div class="page-banner-meta">
+                <div>
+                  <div class="hero-eyebrow" data-en="Field organization" data-ar="تنظيم الحقول">تنظيم الحقول</div>
+                  <h1 class="page-title" data-en="My <em>Plots</em>" data-ar="أراضيّ <em>المسجلة</em>">أراضيّ <em>المسجلة</em></h1>
+                  <p class="page-subtitle" data-en="Build a reusable profile for each field so planning, recommendations, and recordkeeping start from clean farm data." data-ar="أنشئ ملفًا واضحًا لكل قطعة أرض حتى تبدأ التوصيات والتخطيط والتوثيق من بيانات مزرعة منظمة.">أنشئ ملفًا واضحًا لكل قطعة أرض حتى تبدأ التوصيات والتخطيط والتوثيق من بيانات مزرعة منظمة.</p>
+                </div>
+                <span class="tag" data-en="Persistent in browser" data-ar="محفوظة في المتصفح">محفوظة في المتصفح</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="grid grid-2" style="align-items:start;">
+              <div class="surface-panel">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+                  <div class="section-label" style="margin:0;" data-en="Registered plots" data-ar="الأراضي المسجلة">الأراضي المسجلة</div>
+                  <button class="btn btn-clay btn-sm" id="addPlotBtn" type="button" data-en="Add plot" data-ar="إضافة قطعة">إضافة قطعة</button>
+                </div>
+                <div id="addPlotForm" style="display:none;margin-top:1rem;">
+                  <div class="grid grid-2">
+                    <div class="form-field" style="grid-column:1 / -1;">
+                      <label class="form-label" data-en="Plot name" data-ar="اسم القطعة">اسم القطعة</label>
+                      <input id="plotName" type="text" class="form-control" />
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Zone" data-ar="المنطقة">المنطقة</label>
+                      <select id="plotZone" class="form-control">
+                        <option value="aarqa" data-en="Zarqa" data-ar="الزرقاء">الزرقاء</option>
+                        <option value="irbid" data-en="Irbid" data-ar="إربد">إربد</option>
+                        <option value="mafraq" data-en="Mafraq" data-ar="المفرق">المفرق</option>
+                        <option value="ajloun" data-en="Ajloun" data-ar="عجلون">عجلون</option>
+                        <option value="jerash" data-en="Jerash" data-ar="جرش">جرش</op</option>
+                        <option value="madaba" data-en="Madaba" data-ar="مأدبا">مأدبا</option>
+                        <option value="karak" data-en="Karak" data-ar="الكرك">الكرك</option>
+                        <option value="tafilah" data-en="Tafilah" data-ar="الطفيلة">الطفيلة</option>
+                        <option value="maan" data-en="Ma'an" data-ar="معان">معان</option>
+                        <option value="aqaba" data-en="Aqaba" data-ar="العقبة">العقبة</option>
+                        <option value="jordan-valley" data-en="Jordan Valley" data-ar="وادي الأردن">وادي الأردن</option>
+                      </select>
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Size" data-ar="المساحة">المساحة</label>
+                      <input id="plotSize2" type="number" min="1" value="5" class="form-control" />
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Soil" data-ar="التربة">التربة</label>
+                      <select id="plotSoil" class="form-control">
+                        <option value="loamy" data-en="Loamy" data-ar="طميية">طميية</option>
+                        <option value="clay" data-en="Clay" data-ar="طينية">طينية</option>
+                        <option value="sandy" data-en="Sandy" data-ar="رملية">رملية</option>
+                        <option value="calcareous" data-en="Calcareous" data-ar="كلسية">كلسية</option>
+                      </select>
+                    </div>
+                    <div class="form-field">
+                      <label class="form-label" data-en="Water" data-ar="المياه">المياه</label>
+                      <select id="plotWater" class="form-control">
+                        <option value="rainfed" data-en="Rainfed" data-ar="بعلي">بعلي</option>
+                        <option value="well" data-en="Well" data-ar="آبار">آبار</option>
+                        <option value="irrigation-network" data-en="Irrigation Network" data-ar="شبكة ري">شبكة ري</option>
+                      </select>
+                    </div>
+                    <div class="form-field" style="grid-column:1 / -1;">
+                      <button class="btn btn-dark btn-full" id="savePlotBtn" type="button" data-en="Save plot" data-ar="حفظ القطعة">حفظ القطعة</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="plotList" style="display:grid;gap:0.8rem;margin-top:1rem;"></div>
+                <p id="emptyMsg" style="color:var(--muted);margin-top:1rem;" data-en="No plots registered yet. Add your first field to start organizing the farm." data-ar="لا توجد قطع مسجلة بعد. أضف أول قطعة أرض لبدء تنظيم المزرعة.">لا توجد قطع مسجلة بعد. أضف أول قطعة أرض لبدء تنظيم المزرعة.</p>
+              </div>
+
+              <div class="grid">
+                <div class="card">
+                  <h3 class="card-title" data-en="What to capture" data-ar="ما الذي يجب تسجيله">ما الذي يجب تسجيله</h3>
+                  <p class="card-body" data-en="Keep each field profile light but useful: location, area, soil class, and primary water source." data-ar="اجعل ملف كل قطعة بسيطًا ومفيدًا: الموقع، المساحة، نوع التربة، ومصدر المياه الأساسي.">اجعل ملف كل قطعة بسيطًا ومفيدًا: الموقع، المساحة، نوع التربة، ومصدر المياه الأساسي.</p>
+                  <ul class="plain-list" style="margin-top:1rem;">
+                    <li data-en="Clear field name for future logs" data-ar="اسم واضح للقطعة لاستخدامه في السجل">اسم واضح للقطعة لاستخدامه في السجل</li>
+                    <li data-en="Area in dunam for yield estimates" data-ar="المساحة بالدونم لحساب التقديرات">المساحة بالدونم لحساب التقديرات</li>
+                    <li data-en="Soil and irrigation context" data-ar="سياق التربة والري">سياق التربة والري</li>
+                  </ul>
+                </div>
+                <div class="card card-olive">
+                  <h3 class="card-title" data-en="Next move" data-ar="الخطوة التالية">الخطوة التالية</h3>
+                  <p class="card-body" data-en="After saving plots, use the Crop Advisor to match the right crop to each field profile." data-ar="بعد حفظ الأراضي، استخدم مستشار المحاصيل لمطابقة المحصول الأنسب مع كل قطعة أرض.">بعد حفظ الأراضي، استخدم مستشار المحاصيل لمطابقة المحصول الأنسب مع كل قطعة أرض.</p>
+                  <a href="crop-advisor.html" class="btn btn-clay btn-sm" style="margin-top:1rem;" data-en="Open advisor" data-ar="افتح المستشار">افتح المستشار</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-bar"><span data-en="Field registry for the farm" data-ar="سجل الحقول للمزرعة">سجل الحقول للمزرعة</span><span data-en="Arabic default interface" data-ar="واجهة عربية افتراضيًا">واجهة عربية افتراضيًا</span></div></footer>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

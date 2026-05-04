@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Ardi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link">
+          <div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div>
+          <div class="brand-text">
+            <span class="brand-en">Ardi</span>
+            <span class="brand-ar">أرضي - الأردن</span>
+          </div>
+        </a>
+        <div class="header-actions">
+          <button class="lang-btn" id="langToggle">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-wrap">
+      <main style="display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 1rem;">
+      <div class="surface-panel" id="authPageContainer" style="width: 100%; max-width: 400px; padding: 2.5rem; text-align: center;">
+        <img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 64px; height: 64px; filter: brightness(0) invert(1); margin: 0 auto 1rem;" />
+        <h2 style="margin-bottom: 0.5rem;" data-en="Welcome to Ardi" data-ar="مرحباً بك في أرضي">مرحباً بك في أرضي</h2>
+        <p style="color: var(--muted); margin-bottom: 2rem; font-size: 0.85rem;" data-en="Sign in with your phone number" data-ar="سجل دخولك باستخدام رقم هاتفك">سجل دخولك باستخدام رقم هاتفك</p>
+
+        <!-- Phone Auth Section -->
+        <div id="phoneAuthPageSection">
+          <input type="tel" id="pageAuthPhone" class="form-control" placeholder="+9627XXXXXXXX" style="margin-bottom:1rem; text-align: left; direction: ltr;" />
+          
+          <div id="page-recaptcha-container" style="display: flex; justify-content: center; margin-bottom: 1rem;"></div>
+          
+          <button class="btn btn-clay btn-full" id="pageSendOtpBtn" data-en="Send Verification Code" data-ar="إرسال رمز التحقق">إرسال رمز التحقق</button>
+          
+          <div id="pageOtpSection" style="display:none; margin-top:1.5rem;">
+            <input type="text" id="pageAuthOtp" class="form-control" placeholder="123456" style="margin-bottom:1rem; text-align: center; letter-spacing: 0.5em; font-size: 1.2rem;" />
+            <button class="btn btn-clay btn-full" id="pageVerifyOtpBtn" data-en="Verify & Login" data-ar="تحقق وتسجيل الدخول">تحقق وتسجيل الدخول</button>
+          </div>
+        </div>
+
+        <p id="pageAuthError" style="color:#E76F51; font-size:0.85rem; margin-top:1rem; display:none;"></p>
+
+        <div id="pageAuthSuccess" style="display:none;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--success); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem;">✓</div>
+          <p style="color:var(--wheat); font-weight: bold;" data-en="Successfully logged in!" data-ar="تم تسجيل الدخول بنجاح!">تم تسجيل الدخول بنجاح!</p>
+          <a href="index.html" class="btn btn-outline btn-full" style="margin-top:1rem; display: block; text-decoration: none;" data-en="Go to Dashboard" data-ar="الذهاب للوحة التحكم">الذهاب للوحة التحكم</a>
+        </div>
+      </div>
+      </main>
+      <footer class="footer">
+        <div class="container footer-bar">
+          <span data-en="Ardi - smart farming prototype for Jordan" data-ar="أرضي - نموذج أولي لمنصة زراعية ذكية للأردن">أرضي - نموذج أولي لمنصة زراعية ذكية للأردن</span>
+          <span data-en="Secure Phone Authentication" data-ar="تسجيل دخول آمن برقم الهاتف">تسجيل دخول آمن برقم الهاتف</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="app.js?v=2"></script>
+</body>
+</html>

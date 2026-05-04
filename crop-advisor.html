@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أرضي | مستشار المحاصيل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="index.html" class="brand-link">
+          <div class="brand-mark"><img src="https://images.vexels.com/media/users/3/158109/isolated/preview/45554e769cf0539a21eb324928745d5b-plant-branch-icon.png" alt="Ardi" style="width: 26px; height: 26px; filter: brightness(0) invert(1);" /></div>
+          <div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div>
+        </a>
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+          <a href="crop-advisor.html" class="nav-link active" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+          <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+          <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+          <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+          <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+        </nav>
+        <div class="header-actions">
+          <span class="status-pill" data-en="Recommendation engine" data-ar="محرك التوصية">محرك التوصية</span>
+          <button class="lang-btn" id="langToggle">EN</button>
+          <button class="nav-toggle" id="menuToggle" type="button">Menu</button>
+        </div>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <aside class="mobile-drawer" id="sidebar">
+      <div class="drawer-head">
+        <div class="brand-text"><span class="brand-en">Ardi</span><span class="brand-ar">أرضي - الأردن</span></div>
+        <button class="lang-btn-top" type="button">EN</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+        <a href="crop-advisor.html" class="nav-link active" data-en="Crop Advisor" data-ar="مستشار المحاصيل">مستشار المحاصيل</a>
+        <a href="my-plots.html" class="nav-link" data-en="My Plots" data-ar="أراضيّ">أراضيّ</a>
+        <a href="plot-journal.html" class="nav-link" data-en="Journal" data-ar="السجل">السجل</a>
+        <a href="weather.html" class="nav-link" data-en="Weather" data-ar="الطقس">الطقس</a>
+        <a href="companion-plants.html" class="nav-link" data-en="Irrigation" data-ar="الري">الري</a>
+      </nav>
+    </aside>
+    <div class="page-wrap">
+      <main>
+        <section class="page-head">
+          <div class="container">
+            <div class="hero-banner">
+              <div class="page-banner-meta">
+                <div>
+                  <div class="hero-eyebrow" data-en="Field intelligence" data-ar="ذكاء الحقل">ذكاء الحقل</div>
+                  <h1 class="page-title" data-en="Crop <em>Advisor</em>" data-ar="مستشار <em>المحاصيل</em>">مستشار <em>المحاصيل</em></h1>
+                  <p class="page-subtitle" data-en="Enter the field profile and get a ranked crop recommendation with revenue, cost, and profit estimates." data-ar="أدخل ملف الحقل لتحصل على توصية مرتبة للمحاصيل مع تقديرات الإيراد والتكلفة وصافي الربح.">أدخل ملف الحقل لتحصل على توصية مرتبة للمحاصيل مع تقديرات الإيراد والتكلفة وصافي الربح.</p>
+                </div>
+                <span class="tag" data-en="Arabic-first workflow" data-ar="تجربة عربية أولًا">تجربة عربية أولًا</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="advisor-wrap">
+              <div class="surface-panel">
+                <div class="section-label" data-en="Field profile" data-ar="ملف الحقل">ملف الحقل</div>
+                <form id="advisorForm" class="advisor-form">
+                  <div class="form-field">
+                    <label class="form-label" data-en="Governorate zone" data-ar="المنطقة">المنطقة</label>
+                    <select id="zone" class="form-control" required>
+                      <option value="" data-en="Select zone" data-ar="اختر المنطقة">اختر المنطقة</option>
+                      <option value="amman" data-en="Amman" data-ar="العاصمة">العاصمة</option>
+                      <option value="zarqa" data-en="Zarqa" data-ar="الزرقاء">الزرقاء</option>
+                      <option value="irbid" data-en="Irbid" data-ar="إربد">إربد</option>
+                      <option value="mafraq" data-en="Mafraq" data-ar="المفرق">المفرق</option>
+                      <option value="ajloun" data-en="Ajloun" data-ar="عجلون">عجلون</option>
+                      <option value="jerash" data-en="Jerash" data-ar="جرش">جرش</option>
+                      <option value="balqa" data-en="Balqa" data-ar="البلقاء">البلقاء</option>
+                      <option value="madaba" data-en="Madaba" data-ar="مأدبا">مأدبا</option>
+                      <option value="karak" data-en="Karak" data-ar="الكرك">الكرك</option>
+                      <option value="tafilah" data-en="Tafilah" data-ar="الطفيلة">الطفيلة</option>
+                      <option value="maan" data-en="Ma'an" data-ar="معان">معان</option>
+                      <option value="aqaba" data-en="Aqaba" data-ar="العقبة">العقبة</option>
+                      <option value="jordan-valley" data-en="Jordan Valley" data-ar="وادي الأردن">وادي الأردن</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Soil type" data-ar="نوع التربة">نوع التربة</label>
+                    <select id="soil" class="form-control" required>
+                      <option value="" data-en="Select soil" data-ar="اختر التربة">اختر التربة</option>
+                      <option value="loamy" data-en="Loamy" data-ar="طميية">طميية</option>
+                      <option value="clay" data-en="Clay" data-ar="طينية">طينية</option>
+                      <option value="sandy" data-en="Sandy" data-ar="رملية">رملية</option>
+                      <option value="calcareous" data-en="Calcareous" data-ar="كلسية">كلسية</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Water source" data-ar="مصدر المياه">مصدر المياه</label>
+                    <select id="water" class="form-control" required>
+                      <option value="" data-en="Select source" data-ar="اختر المصدر">اختر المصدر</option>
+                      <option value="rainfed" data-en="Rainfed" data-ar="بعلي">بعلي</option>
+                      <option value="well" data-en="Well" data-ar="آبار">آبار</option>
+                      <option value="irrigation-network" data-en="Irrigation Network" data-ar="شبكة ري">شبكة ري</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Season" data-ar="الموسم">الموسم</label>
+                    <select id="season" class="form-control" required>
+                      <option value="" data-en="Select season" data-ar="اختر الموسم">اختر الموسم</option>
+                      <option value="winter" data-en="Winter" data-ar="شتاء">شتاء</option>
+                      <option value="spring" data-en="Spring" data-ar="ربيع">ربيع</option>
+                      <option value="summer" data-en="Summer" data-ar="صيف">صيف</option>
+                      <option value="autumn" data-en="Autumn" data-ar="خريف">خريف</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Plot size (dunam)" data-ar="مساحة الأرض (دونم)">مساحة الأرض (دونم)</label>
+                    <input id="plotSize" type="number" min="1" value="10" class="form-control" />
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label" data-en="Crop category" data-ar="فئة المحصول">فئة المحصول</label>
+                    <select id="cropCategory" class="form-control">
+                      <option value="any" data-en="Any category" data-ar="جميع الفئات">جميع الفئات</option>
+                      <option value="tree" data-en="Tree Crops (Fruits/Nuts)" data-ar="الأشجار المثمرة">الأشجار المثمرة</option>
+                      <option value="veg" data-en="Vegetables & Herbs" data-ar="الخضروات والأعشاب">الخضروات والأعشاب</option>
+                      <option value="field" data-en="Field Crops (Grains/Legumes)" data-ar="المحاصيل الحقلية">المحاصيل الحقلية</option>
+                    </select>
+                  </div>
+                  <div class="form-field span-2">
+                    <label class="form-label" data-en="Decision priority" data-ar="أولوية القرار">أولوية القرار</label>
+                    <select id="decisionFocus" class="form-control">
+                      <option value="balanced" data-en="Balanced fit" data-ar="توازن عام">توازن عام</option>
+                      <option value="profit" data-en="Higher profit" data-ar="أعلى ربحية">أعلى ربحية</option>
+                      <option value="resilience" data-en="Safer and more resilient" data-ar="أكثر أمانًا واستقرارًا">أكثر أمانًا واستقرارًا</option>
+                      <option value="market" data-en="Faster market opportunity" data-ar="فرصة سوق أسرع">فرصة سوق أسرع</option>
+                    </select>
+                  </div>
+                  <div class="form-field span-2">
+                    <button class="btn btn-clay btn-full" type="submit" data-en="Generate recommendation" data-ar="ولّد التوصية">ولّد التوصية</button>
+                  </div>
+                </form>
+
+                <div class="section" style="padding-top:1.5rem;">
+                  <div class="section-label" data-en="Reference crops" data-ar="محاصيل مرجعية">محاصيل مرجعية</div>
+                  <div class="grid grid-3">
+                    <div class="card card-cream"><div class="poster-art"><div style="font-size: 2rem; font-family: var(--font-serif); font-weight: bold; color: var(--clay);">T</div></div><div class="card-body" data-en="Tomato" data-ar="طماطم">طماطم</div></div>
+                    <div class="card card-cream"><div class="poster-art"><div style="font-size: 2rem; font-family: var(--font-serif); font-weight: bold; color: var(--olive);">O</div></div><div class="card-body" data-en="Olive" data-ar="زيتون">زيتون</div></div>
+                    <div class="card card-cream"><div class="poster-art"><div style="font-size: 2rem; font-family: var(--font-serif); font-weight: bold; color: var(--sand);">W</div></div><div class="card-body" data-en="Wheat" data-ar="قمح">قمح</div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="section-label" data-en="Recommendation output" data-ar="مخرجات التوصية">مخرجات التوصية</div>
+                <div class="result-panel empty" id="resultPanel">
+                  <div>
+                    <div class="empty-icon">*</div>
+                    <p data-en="Fill in the field profile, then generate a ranked recommendation." data-ar="أكمل بيانات الحقل ثم أنشئ توصية مرتبة للمحاصيل.">أكمل بيانات الحقل ثم أنشئ توصية مرتبة للمحاصيل.</p>
+                  </div>
+                </div>
+                <div class="surface-panel" style="margin-top:1rem;">
+                  <div class="section-label" data-en="What this tool checks" data-ar="ما الذي يتحقق منه النظام">ما الذي يتحقق منه النظام</div>
+                  <ul class="plain-list">
+                    <li data-en="Field suitability by zone and soil" data-ar="ملاءمة المنطقة ونوع التربة">ملاءمة المنطقة ونوع التربة</li>
+                    <li data-en="Water source compatibility" data-ar="توافق مصدر المياه">توافق مصدر المياه</li>
+                    <li data-en="Seasonal timing for planting" data-ar="التوقيت الموسمي للزراعة">التوقيت الموسمي للزراعة</li>
+                    <li data-en="Basic economic forecast" data-ar="توقع اقتصادي أولي">توقع اقتصادي أولي</li>
+                    <li data-en="Planning priority: profit, resilience, or market speed" data-ar="أولوية التخطيط: الربح أو الاستقرار أو سرعة السوق">أولوية التخطيط: الربح أو الاستقرار أو سرعة السوق</li>
+                    <li data-en="Crop-specific market update snapshot" data-ar="ملخص تحديثات السوق حسب المحصول">ملخص تحديثات السوق حسب المحصول</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="container footer-bar">
+          <span data-en="Crop recommendation prototype" data-ar="نموذج أولي لتوصيات المحاصيل">نموذج أولي لتوصيات المحاصيل</span>
+          <span data-en="Designed for Arabic-first use" data-ar="مصمم للاستخدام العربي أولًا">مصمم للاستخدام العربي أولًا</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+   
